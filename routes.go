@@ -7,4 +7,6 @@ import (
 
 func routing(e *echo.Echo) {
 	e.GET("/", controller.Hello)
+	e.GET("/users/:id/", controller.User)
+	e.GET("/show/", controller.Show)
 }
