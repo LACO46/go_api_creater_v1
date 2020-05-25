@@ -1,31 +1,32 @@
 version: '3'
 
 services:
-    mecab_result_record_api:
+    ${default_name}_api:
         build:
             context: .
             dockerfile: Dockerfile
-        container_name: mecab_result_record_api
+        container_name: ${default_name}_api
         volumes:
             - ./:/home
         working_dir: /home
         depends_on:
-            - mecab_result_record_db
+            - ${default_name}_db
         ports: 
-            - 8080:80
+            - ${default_api_ip}:80
         tty: true
+        command: go run main.go routes.go
 
-    mecab_result_record_db:
+    ${default_name}_db:
         image: postgres:10.5
-        container_name: mecab_result_record_db
+        container_name: ${default_name}_db
         ports:
-            - 5432:5432
+            - ${default_db_ip}:5432
         volumes:
             - ./postgres/init:/docker-entrypoint-initdb.d
         environment:
             POSTGRES_USER: root
             POSTGRES_PASSWORD: root
             POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
-        hostname: mecab_result_record_db
+        hostname: ${default_name}_db
         restart: always
         user: root
