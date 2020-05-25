@@ -1,0 +1,5 @@
+development:
+    dialect: postgres
+    datasource: dbname=mecab_result_record_db host=mecab_result_record_db user=root password=root port=5432 sslmode=disable
+    dir: ../postgres/migration/
+    table: migrations
