@@ -1,18 +1,30 @@
 package logic
 
-import (    
-	"../api"
+import (
 	"fmt"
+	"../api"
 )
 
-type TestModel struct {
-	Hello string
+type TestItemModel struct {
+	Id string
+	Name string
 }
 
-func Test() *TestModel {
+func Test() []TestItemModel {
 	dbSetting := api.LoadDbSetting()
-	fmt.Println(dbSetting)
-	return &TestModel{
-		Hello: "world",
+	db, err := api.ConnectDb(dbSetting)
+	if err != nil {
+		return nil
 	}
+
+	var testListModel []TestItemModel
+	for _, item := range api.Test(db) {
+		testItem := &TestItemModel {
+			Id: item.Id,
+			Name: item.Name,
+		}
+
+		testListModel = append(testListModel, *testItem)
+	}
+	return testListModel
 }
