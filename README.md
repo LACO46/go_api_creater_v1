@@ -97,3 +97,8 @@ $ curl localhost:8080/
 ```
 
 - Idはuuidのため、APIごとに変動する
+
+## 利用しているモジュールについて
+
+https://echo.labstack.com/guide
+https://github.com/rubenv/sql-migrate
