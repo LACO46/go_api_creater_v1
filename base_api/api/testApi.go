@@ -5,7 +5,7 @@ import (
 )
 
 type TestApiModel struct {
-	Id string    `db:"id"`
+	Id   string `db:"id"`
 	Name string `db:"name"`
 }
 
@@ -17,6 +17,6 @@ func Test(db *sqlx.DB) []TestApiModel {
 	if err != nil {
 		return nil
 	}
-	
+
 	return testModel
 }

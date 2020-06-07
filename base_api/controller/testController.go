@@ -2,8 +2,9 @@ package controller
 
 import (
 	"net/http"
-	"github.com/labstack/echo"
+
 	"../logic"
+	"github.com/labstack/echo"
 )
 
 func Test(c echo.Context) error {
