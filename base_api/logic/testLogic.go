@@ -5,7 +5,7 @@ import (
 )
 
 type TestItemModel struct {
-	Id string
+	Id   string
 	Name string
 }
 
@@ -18,8 +18,8 @@ func Test() []TestItemModel {
 
 	var testListModel []TestItemModel
 	for _, item := range api.Test(db) {
-		testItem := &TestItemModel {
-			Id: item.Id,
+		testItem := &TestItemModel{
+			Id:   item.Id,
 			Name: item.Name,
 		}
 

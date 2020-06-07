@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/labstack/echo"
 	"./controller"
+	"github.com/labstack/echo"
 )
 
 func routing(e *echo.Echo) {

@@ -2,6 +2,7 @@ package api
 
 import (
 	"fmt"
+
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )

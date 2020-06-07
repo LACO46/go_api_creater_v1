@@ -1,10 +1,10 @@
 package api
 
-import (                                                                      
+import (
 	"io/ioutil"
 	"strings"
-	
-	yaml "gopkg.in/yaml.v2"  
+
+	yaml "gopkg.in/yaml.v2"
 )
 
 type Dbconfig struct {
@@ -12,19 +12,19 @@ type Dbconfig struct {
 }
 
 type Development struct {
-	Dialect string `yaml:"dialect"`
-    Datasource string `yaml:"datasource"`
-    Dir string `yaml:"dir"`
-    Table string `yaml:"table"`
+	Dialect    string `yaml:"dialect"`
+	Datasource string `yaml:"datasource"`
+	Dir        string `yaml:"dir"`
+	Table      string `yaml:"table"`
 }
 
 type DbSettingModel struct {
-	Dbname string 
-	Host string 
-	Password string 
-	Port string 
-	Sslmode string 
-	User string
+	Dbname   string
+	Host     string
+	Password string
+	Port     string
+	Sslmode  string
+	User     string
 }
 
 func LoadDbSetting() *DbSettingModel {
@@ -48,11 +48,11 @@ func LoadDbSetting() *DbSettingModel {
 	}
 
 	return &DbSettingModel{
-		Dbname: settingMap["dbname"],
-		Host: settingMap["host"],
+		Dbname:   settingMap["dbname"],
+		Host:     settingMap["host"],
 		Password: settingMap["password"],
-		Port: settingMap["port"],
-		Sslmode: settingMap["sslmode"],
-		User: settingMap["user"],
+		Port:     settingMap["port"],
+		Sslmode:  settingMap["sslmode"],
+		User:     settingMap["user"],
 	}
 }
